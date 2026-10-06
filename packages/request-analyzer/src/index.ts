@@ -1,11 +1,14 @@
 import type { MediaRequest, StreamKind } from "@mediasniff/shared-types";
 export const sensitive =
-  /^(token|auth|authorization|signature|sig|key|secret|access_token|session|credential|cookie|set-cookie)$/i;
+  /^(token|auth|authorization|signature|sig|key|secret|access_token|session|credential|cookie|set-cookie|api[-_]?key|x-api-key|proxy-authorization)$/i;
 export function sanitizeUrl(raw: string): string {
   try {
     const url = new URL(raw);
+    if (url.username) url.username = "[REDACTED]";
+    if (url.password) url.password = "[REDACTED]";
     for (const key of [...url.searchParams.keys()])
       if (sensitive.test(key)) url.searchParams.set(key, "[REDACTED]");
+    if (url.hash) url.hash = "#[REDACTED]";
     return url.toString();
   } catch {
     return "[INVALID URL]";
@@ -17,7 +20,10 @@ export function sanitizeHeaders(
   return Object.fromEntries(
     Object.entries(headers).map(([key, value]) => [
       key,
-      sensitive.test(key) ? "[REDACTED]" : value,
+      sensitive.test(key.toLowerCase()) ||
+      /^(x-)?(api[-_]?key|auth|authorization|cookie|token|secret)$/i.test(key)
+        ? "[REDACTED]"
+        : value,
     ]),
   );
 }
