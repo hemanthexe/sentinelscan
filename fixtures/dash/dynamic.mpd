@@ -1,0 +1,1 @@
+<?xml version="1.0"?><MPD type="dynamic" minimumUpdatePeriod="PT5S" timeShiftBufferDepth="PT60S"><Period><AdaptationSet contentType="video"><ContentProtection schemeIdUri="urn:mpeg:dash:mp4protection:2011" value="cenc"/><Representation id="v720" bandwidth="2800000" width="1280" height="720"/></AdaptationSet></Period></MPD>

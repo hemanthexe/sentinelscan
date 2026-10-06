@@ -1,0 +1,23 @@
+{
+  "name": "@mediasniff/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc --outDir dist --noEmit false",
+    "typecheck": "tsc --noEmit",
+    "lint": "prettier --check src",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@mediasniff/media-analyzer": "workspace:*",
+    "@mediasniff/request-analyzer": "workspace:*",
+    "fastify": "^5.1.0",
+    "@fastify/cors": "^10.0.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "vitest": "^2.1.8"
+  }
+}
