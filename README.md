@@ -1,8 +1,10 @@
-# MediaSniff
+# MediaSniff / SentinelScan
 
 Advanced HLS, MPEG-DASH and media-source inspection for developers.
 
 MediaSniff is a privacy-first monorepo for inspecting media sources already exposed to a browser. It parses manifests locally, redacts sensitive URL parameters, and reports DRM metadata without extracting keys or bypassing protection.
+
+The web workspace now includes **SentinelScan**, an authorized web security assessment dashboard built on the same privacy-first foundation. It provides target and scope setup, scan profiles with an authorization gate, scan history, asset inventory, prioritized findings with evidence and remediation, posture trends, reports, and CI/CD/API entry points. The current SentinelScan experience uses isolated in-memory domain data until an assessment backend is connected.
 
 ## Features
 
