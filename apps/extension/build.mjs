@@ -1,3 +1,0 @@
-import { mkdir, cp, rm, readFile, writeFile } from 'node:fs/promises';
-import ts from 'typescript';
-await rm('dist', { recursive: true, force: true }); await mkdir('dist', { recursive: true }); await cp('manifest.json', 'dist/manifest.json'); await cp('popup.html', 'dist/popup.html'); await cp('src', 'dist', { recursive: true }); await Promise.all(['content','service-worker','popup'].map(async name => { const source = `dist/${name}.ts`; const target = `dist/${name}.js`; const text = await readFile(source, 'utf8'); await writeFile(target, ts.transpile(text, { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 })); })); console.log('Extension copied to dist/');

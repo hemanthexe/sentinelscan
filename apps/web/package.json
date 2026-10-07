@@ -1,5 +1,5 @@
 {
-  "name": "@mediasniff/web",
+  "name": "@sentinelscan/web",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -11,9 +11,6 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@mediasniff/media-analyzer": "workspace:*",
-    "@mediasniff/request-analyzer": "workspace:*",
-    "@mediasniff/shared-types": "workspace:*",
     "@vitejs/plugin-react": "^4.3.4",
     "lucide-react": "^0.468.0",
     "react": "^18.3.1",
